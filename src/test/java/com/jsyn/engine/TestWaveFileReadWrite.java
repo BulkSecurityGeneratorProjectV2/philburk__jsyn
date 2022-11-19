@@ -18,6 +18,7 @@ package com.jsyn.engine;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 import com.jsyn.data.FloatSample;
 import com.jsyn.util.SampleLoader;
@@ -30,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class TestWaveFileReadWrite {
 
     public void checkWriteReadWave(int numChannels, float[] data) throws IOException {
-        File temp = File.createTempFile("test_wave", ".wav");
+        File temp = Files.createTempFile("test_wave", ".wav").toFile();
         temp.deleteOnExit();
         System.out.println("Creating wave file " + temp);
 
@@ -85,7 +86,7 @@ public class TestWaveFileReadWrite {
 
     @Test
     public void testArguments() throws IOException {
-        File temp = File.createTempFile("test_wave", ".wav");
+        File temp = Files.createTempFile("test_wave", ".wav").toFile();
         temp.deleteOnExit();
         System.out.println("Creating wave file " + temp);
 
